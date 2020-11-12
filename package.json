@@ -28,6 +28,8 @@
     "eslint-plugin-vue": "^7.0.0-0",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
-    "typescript": "~3.9.3"
+    "typescript": "~3.9.3",
+    "vue-property-decorator": "^9.0.2",
+    "vuex-module-decorators": "^1.0.1"
   }
 }

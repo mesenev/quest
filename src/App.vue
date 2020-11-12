@@ -7,21 +7,21 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import Garden from './components/scenes/Garden.vue';
-import Castle from './components/scenes/Castle.vue';
-import OptionsList from './components/OptionsList.vue';
-import State from './components/State.vue';
-import { State as StateVuex } from "vuex-class";
+import { getModule } from 'vuex-module-decorators';
+import Garden from '@/components/scenes/Garden.vue';
+import Castle from '@/components/scenes/Castle.vue';
+import State from '@/components/State.vue';
+import GameStore from '@/store/GameStore';
+
 @Options({
-  components: {
-    Garden,
-    Castle,
-    OptionsList,
-    State,
-  },
+  components: { Garden, Castle, State, },
 })
 export default class App extends Vue {
-  @StateVuex public currentScene!: string;
+  private store = getModule(GameStore);
+
+  get currentScene() {
+    return this.store.currentScene;
+  }
 }
 </script>
 

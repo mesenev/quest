@@ -9,17 +9,16 @@
 
 <script lang="ts">
 import { Vue } from 'vue-class-component';
-import {
-  State as VuexState,
-  Getter,
-  Action,
-  Mutation,
-  namespace
-} from 'vuex-class';
+import { getModule } from 'vuex-module-decorators';
+import GameStore from '@/store/GameStore';
 
-const someModule = namespace('');
+
 export default class State extends Vue {
-  @VuexState health!: number;
+  private store = getModule(GameStore);
+
+  get health(){
+    return this.store.health;
+  }
 }
 </script>
 
