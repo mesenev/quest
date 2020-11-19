@@ -3,7 +3,7 @@ import DefaultScene from "@/components/common/DefaultScene.vue";
 
 export default class FailReject extends DefaultScene {
   public nameScene = "FailReject";
-  picName = '';
+  picName = 'pharaoh_00';
   public descriptionScene =
       ' Ходьба под жарким солнцем по раскаленному песку никогда не была вашим любимым занятием.' +
       ' Тем более в летном комбинезоне.\n' +

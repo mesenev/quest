@@ -2,10 +2,10 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
 
-export default class ChitchatIntro extends DefaultScene {
+export default class ChitchatFirst extends DefaultScene {
   public nameScene = "ChitchatFirst";
   picName = "galaxy_02";
-  public descriptionScene =
+  public descriptionScene = (!this.gameStore.chatInit) ?
       " - Хорошо, - доктор Джокс откинулся в кресле и жестом предложил вам угощаться из мини-бара." +
       " - Признаться, давненько мне не приходилось общаться с разбирающимся в предметах старины рейнджером." +
       " Последний был этот пеленг - кажется... лякуша Борзухан, или Барзумян?" +
@@ -19,25 +19,24 @@ export default class ChitchatIntro extends DefaultScene {
       " Вы похожи на азартного человека.\n" +
       " \n" +
       " Археолог умолк и уставился на вас." +
-      " Климатизаторы <span>\"Отморозко\"</span> тихо шелестели, навевая приятную прохладу.";
+      " Климатизаторы <span>\"Отморозко\"</span> тихо шелестели, навевая приятную прохладу." :
+      'Археолог приветливо смотрит на вас, медленно потягивая прохладное ' +
+      'мартини из запотевшего бокала. Похоже, он нашел в вас приятного собеседника' +
+      ' и рад поделиться своими знаниями.';
 
-  deactivated() {
-    this.descriptionScene = 'Археолог приветливо смотрит на вас, медленно потягивая прохладное ' +
-        'мартини из запотевшего бокала. Похоже, он нашел в вас приятного собеседника и рад поделиться своими знаниями.'
-  }
 
   options = [
     new DefaultOptionTransition(
         'Вы прекрасный собеседник и замечательный специалист по древностям,' +
         ' но у нас есть дело - расскажите легенду о братьях',
-        'LegendIntro',
+        'LegendFirst',
     ),
     new DefaultOptionTransition(
         'Я с удовольствием почитал бы дневник в переводе от профессора Зидоча.' +
         ' Его эксцентрично-литературные переводы меня восхищают',
         'ChitchatDiary',
         () => {
-          this.gameStore.setFlagTo('diary', true)
+          this.gameStore.setFlagTo('diary')
         },
         null,
         () => {
@@ -48,8 +47,8 @@ export default class ChitchatIntro extends DefaultScene {
         'Рука мумии? Думаю, что буду просто счастлив увидеть такую редкость' +
         ' - если вас не затруднит, доктор',
         'ChitchatMummy',
-                () => {
-          this.gameStore.setFlagTo('mummy', true)
+        () => {
+          this.gameStore.setFlagTo('mummy')
         },
         null,
         () => {
@@ -59,8 +58,8 @@ export default class ChitchatIntro extends DefaultScene {
     new DefaultOptionTransition(
         'А что это у вас лежит? Не "Малая ли Энциклопедия Богов" самого Склерозуса?',
         'ChitchatBook',
-                () => {
-          this.gameStore.setFlagTo('book', true)
+        () => {
+          this.gameStore.setFlagTo('book')
         },
         null,
         () => {
@@ -71,8 +70,8 @@ export default class ChitchatIntro extends DefaultScene {
         'Я просто обожаю всяческие загадки.' +
         ' Думаю, ваша не так хороша, как вы считаете. Может, загадаете ее мне?',
         'ChitchatPuzzle',
-                () => {
-          this.gameStore.setFlagTo('puzzle', true)
+        () => {
+          this.gameStore.setFlagTo('puzzle')
         },
         null,
         () => {
@@ -83,8 +82,8 @@ export default class ChitchatIntro extends DefaultScene {
         'Кстати, доктор Джокс, может, расскажите,' +
         ' что вы искали на планете Граал - я много слышал о вашей экспедиции...',
         'ChitchatGraal',
-                () => {
-          this.gameStore.setFlagTo('graal', true)
+        () => {
+          this.gameStore.setFlagTo('graal')
         },
         null,
         () => {

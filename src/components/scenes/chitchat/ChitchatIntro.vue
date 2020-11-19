@@ -18,7 +18,7 @@ export default class ChitchatIntro extends DefaultScene {
     ),
     new DefaultOptionTransition(
         'Вы правы, лучше приступить к делу - расскажите мне эту легенду',
-        'LegendIntro'
+        'LegendFirst'
     ),
   ];
 }

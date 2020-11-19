@@ -1,4 +1,3 @@
-import GameStore from '@/store/GameStore';
 import SceneStore from '@/store/SceneStore';
 import { getModule } from "vuex-module-decorators";
 
@@ -38,8 +37,7 @@ export class DefaultOption {
 export class DefaultOptionTransition extends DefaultOption {
     constructor(
         text: string, target: string,
-        additional: Function = () => {
-        },
+        additional: Function | null = null,
         active: Function | null = null,
         show: Function | null = null,
     ) {
@@ -47,7 +45,8 @@ export class DefaultOptionTransition extends DefaultOption {
             text,
             () => {
                 this.sceneStore.changeScene(target);
-                additional();
+                if (additional)
+                    additional();
             },
             active, show
         );

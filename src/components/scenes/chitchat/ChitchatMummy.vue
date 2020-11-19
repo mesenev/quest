@@ -1,6 +1,6 @@
  <script lang="ts">
-import DefaultScene from "@/components/common/DefaultScene";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
+import DefaultScene from "@/components/common/DefaultScene.vue";
 
 export default class ChitchatMummy extends DefaultScene {
   public nameScene = "ChitchatMummy";

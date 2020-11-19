@@ -34,12 +34,14 @@ export default class Intro extends DefaultScene {
 
   options = [
     new DefaultOptionTransition(
-        '',
-        ''
+        'Эй, доктор Джокс - зачем так спешить?' +
+        ' Пирамида никуда не денется... пока ключ не повернешь. Может, поболтаем об археологии?',
+        'ChitchatIntro',
     ),
     new DefaultOptionTransition(
-        '',
-        ''
+        'Я уверен, что смогу найти верное решение, услышав эту легенду.' +
+        ' Начинайте ваш рассказ, доктор Джокс!',
+        'LegendFirst',
     ),
   ];
 }

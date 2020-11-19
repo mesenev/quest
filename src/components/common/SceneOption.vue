@@ -8,22 +8,15 @@ import { Prop } from 'vue-property-decorator';
 import { DefaultOption } from "@/store/DefaultOption";
 
 export default class SceneOption extends Vue {
-  private _description!: string;
-  private _handler!: Function;
-  @Prop() readonly dataCreate!: DefaultOption;
+  @Prop() readonly Option!: DefaultOption;
 
-  // noinspection JSUnusedGlobalSymbols
-  created() {
-    this._description = this.dataCreate.text;
-    this._handler = this.dataCreate.handler;
-  }
 
   get Description() {
-    return this._description;
+    return this.Option.text;
   }
 
-  get Handler() {
-    return this._handler;
+  get Handler(): Function {
+    return this.Option.handler;
   }
 }
 </script>

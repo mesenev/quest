@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class LegendSecond extends DefaultScene {
   public nameScene = "LegendSecond";
+  picName = 'tomb_03';
   public descriptionScene = ' Археолог продолжил чтение:\n' +
       ' \n' +
       ' "Пока Замполет бранил драчунов, четвертый сын вовсю заигрывал со служанкой, из-за которой и началась драка.' +
@@ -35,13 +36,15 @@ export default class LegendSecond extends DefaultScene {
     new DefaultOptionTransition(
         'Э нет, ищите другого дурака. Я убираюсь с этой планеты...',
         'FailReject',
+        null, null,
+        () => !this.gameStore.mainSolved,
     ),
     new DefaultOptionTransition(
         'А можно еще раз послушать?',
-        'LegendIntro',
+        'LegendFirst',
         undefined,
         null,
-        () => this.gameStore.mainSolved,
+        () => !this.gameStore.mainSolved,
     ),
     new DefaultOptionTransition(
         'Думаю, что уже достаточно услышал. Пора приступать...',
@@ -49,6 +52,13 @@ export default class LegendSecond extends DefaultScene {
         undefined,
         null,
         () => !this.gameStore.mainSolved,
+    ),
+    new DefaultOptionTransition(
+        'Взяться за открывание шкатулки',
+        'AdditionalSolveInit',
+        undefined,
+        null,
+        () => this.gameStore.mainSolved,
     ),
   ];
 }

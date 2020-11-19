@@ -2,10 +2,10 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
 
-export default class ChitchatIntro extends DefaultScene {
-  public nameScene = "ChitchatFirst";
+export default class ChitchatPuzzle extends DefaultScene {
+  public nameScene = "ChitchatPuzzle";
   picName = "tomb_03";
-  bet?: number = undefined;
+  bet = -1;
   public descriptionScene =
       ' - Так ведь загадочка-то не моя. С древнеугупетского свитка, который был найден в гробнице фараона Недохотепа.' +
       ' Только вот давайте так - делаем ставку, если вы не отгадываете, деньги мои;' +
@@ -47,39 +47,42 @@ export default class ChitchatIntro extends DefaultScene {
       ' \n' +
       ' С этими словами вы забрали свой выигрыш...'
 
-  private incorrect() {
+  incorrect() {
     this.gameStore.changeCredits(-this.bet);
     this.descriptionScene = this.fail;
     this.options = this.finalOption;
   }
 
   private correct() {
+    debugger;
     this.gameStore.changeCredits(this.bet * 2);
     this.descriptionScene = this.descSuccess;
     this.options = this.finalOption;
   }
 
   private finalOption = [
-    new DefaultOptionTransition('Дальше', 'ChitchatInit'),
+    new DefaultOptionTransition('Дальше', 'ChitchatFirst'),
   ]
 
   private setBet(value: number) {
+    debugger;
     this.bet = value;
+    this.descriptionScene = this.problem;
     this.options = [
-      new DefaultOption('Зеленый и плоский как багз аллигатор, принадлежащий Нудиусу', this.incorrect),
-      new DefaultOption('Птица ибис, символ знаний и мудрости, принадлежащая Этоту', this.incorrect),
-      new DefaultOption('Степной шакал, любимая зверушка бога зла Абдулбиса', this.incorrect),
-      new DefaultOption('Символ солнца - священный скарабей, символ самого Гамон-Ра', this.incorrect),
-      new DefaultOption('Белоснежный бык Опас, любимец бога Птюха', this.correct),
+      new DefaultOption('Зеленый и плоский как багз аллигатор, принадлежащий Нудиусу', () => this.incorrect()),
+      new DefaultOption('Птица ибис, символ знаний и мудрости, принадлежащая Этоту', () => this.incorrect()),
+      new DefaultOption('Степной шакал, любимая зверушка бога зла Абдулбиса', () => this.incorrect()),
+      new DefaultOption('Символ солнца - священный скарабей, символ самого Гамон-Ра', () => this.incorrect()),
+      new DefaultOption('Белоснежный бык Опас, любимец бога Птюха', () => this.correct()),
     ]
   }
 
   options = [
-    new DefaultOption('Хорошо, я ставлю 25 cr', () => this.bet = 25),
-    new DefaultOption('Рискну-ка я поставить 100 cr', () => this.bet = 100),
-    new DefaultOptionTransition('Нет, я сюда деньги не тратить, а зарабатывать прилетел', 'ChitchatIntro'),
-    new DefaultOption('Думаю, что ставка в 50 cr - то, что нужно', () => this.bet = 50),
+    new DefaultOption('Хорошо, я ставлю 25 cr', () => this.setBet(25)),
+    new DefaultOption('Рискну-ка я поставить 100 cr', () => this.setBet(100)),
+    new DefaultOptionTransition('Нет, я сюда деньги не тратить, а зарабатывать прилетел', 'ChitchatFirst'),
+    new DefaultOption('Думаю, что ставка в 50 cr - то, что нужно', () => this.setBet(50)),
   ];
 }
 </script>
-
+()=>

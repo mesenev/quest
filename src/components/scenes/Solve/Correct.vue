@@ -27,14 +27,19 @@ export default class Correct extends DefaultScene {
       ' первая - статуэтка старшего, вторая - родившегося после него, и так далее...' +
       ' Ну как, беретесь?';
 
+  // noinspection JSUnusedGlobalSymbols
+  beforeCreate() {
+    console.log();
+    this.gameStore.mutateMainSolved();
+  }
   options = [
     new DefaultOptionTransition(
         'Пожалуй, я не буду рисковать - кто знает, чем чревата неудачная попытка',
-        '',
+        'Success',
     ),
     new DefaultOptionTransition(
         'Пожалуй, я рискну. Расположить их от старшего до младшего - не так уж и сложно',
-        '',
+        'AdditionalIntro',
     ),
   ];
 }

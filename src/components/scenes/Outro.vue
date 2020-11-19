@@ -14,8 +14,10 @@
 </template>
 
 <script>
-export default {
-  name: "Outro",
+
+import { Vue } from "vue-class-component";
+
+export default class Success extends Vue {
 }
 </script>
 

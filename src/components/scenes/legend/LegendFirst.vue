@@ -44,14 +44,14 @@ export default class LegendFirst extends DefaultScene {
         'SolveInit',
         undefined,
         null,
-        () => this.gameStore.mainSolved,
+        () => !this.gameStore.mainSolved,
     ),
     new DefaultOptionTransition(
         'Взяться за открывание шкатулки',
-        'SolveInit',
+        'AdditionalSolveInit',
         undefined,
         null,
-        () => !this.gameStore.mainSolved,
+        () => this.gameStore.mainSolved,
     ),
 
   ];

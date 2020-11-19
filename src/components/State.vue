@@ -1,9 +1,7 @@
 <template>
   <div class="state">
-    <ul>
-      <li>health: {{ health }}/100</li>
-      <li>money: 0</li>
-    </ul>
+      <span>{{ money }}</span>
+      <span>{{ tip }}</span>
   </div>
 </template>
 
@@ -16,14 +14,19 @@ import GameStore from '@/store/GameStore';
 export default class State extends Vue {
   private store = getModule(GameStore);
 
-  get health(){
+  get money(): string {
+    return `У вас ${this.store.credits} cr`;
+  }
+
+  get tip(): string {
+    return this.store.godDescription;
   }
 }
 </script>
-
-<style scoped lang="stylus">
+<style lang="stylus">
 .state
-  position: absolute
-  top: 20%
-  left: 71%
+  display flex
+  flex-direction column
+  span
+        width: 75%;
 </style>

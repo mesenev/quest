@@ -4,8 +4,9 @@ import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
 import { shuffle } from "@/store/GameStore";
 
 
-export default class SolveInit extends DefaultScene {
-  public nameScene = "SolveInit";
+export default class AdditionalSolveInit extends DefaultScene {
+  public nameScene = "AdditionalSolveInit";
+  picName = 'pharaoh_01';
   public descriptionScene =
       ' Вы взяли шкатулку в руки. Семь отверстий, семь статуэток.' +
       ' В первое отверстие - статуэтка старшего брата. Затем - родившегося вторым...' +
@@ -60,6 +61,12 @@ export default class SolveInit extends DefaultScene {
       this.descriptionScene = this.success;
       this.gameStore.changeCredits(500);
     }
+    this.options = [
+      new DefaultOptionTransition(
+          'Далее', 'Success', undefined, null,
+          () => this.answerChecked,
+      ),
+    ];
   }
 
   options = shuffle([
@@ -73,10 +80,6 @@ export default class SolveInit extends DefaultScene {
     new DefaultOption(
         'Попытаться открыть шкатулку...', () => this.checkAnswer(),
         undefined, () => this.progressInd == 6,
-    ),
-    new DefaultOptionTransition(
-        'Далее', 'Success', undefined, null,
-        () => this.answerChecked,
     ),
   ]);
 }

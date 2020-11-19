@@ -1,4 +1,4 @@
-import { Module, VuexModule, Mutation, Action, MutationAction } from 'vuex-module-decorators';
+import { Module, VuexModule, Mutation } from 'vuex-module-decorators';
 import Store from '@/store/index';
 
 const godsAndSons = ['арес', 'вмаз', 'звер', 'зевс', 'зема', 'марс', 'мерс'];
@@ -24,10 +24,11 @@ export default class GameStore extends VuexModule {
     mummy = false;
     puzzle = false;
     book = false;
-    god: string = '';
-    tip: string = '';
+    god = '';
+    tip = '';
     outro = false;
     mainSolved = false;
+    chatInit = false;
 
     get godDescription(): string {
         if (this.god)
@@ -39,17 +40,18 @@ export default class GameStore extends VuexModule {
     }
 
 
-    @Mutation setFlagTo(flagName: string, value: boolean) {
+    @Mutation setFlagTo(flagName: string) {
+        this.chatInit = true;
         if ('graal' == flagName)
-            this.graal = value;
+            this.graal = true;
         if ('diary' == flagName)
-            this.diary = value;
+            this.diary = true;
         if ('mummy' == flagName)
-            this.mummy = value;
+            this.mummy = true;
         if ('puzzle' == flagName)
-            this.puzzle = value;
+            this.puzzle = true;
         if ('book' == flagName)
-            this.book = value;
+            this.book = true;
     }
 
     @Mutation changeCredits(diff: number) {
@@ -58,14 +60,16 @@ export default class GameStore extends VuexModule {
 
     @Mutation selectGod() {
         this.god = godsAndSons[Math.floor(Math.random() * godsAndSons.length)];
-        let tip = shuffle([...this.god].map((x) => kids.indexOf(x) + 1));
-        this.tip = `${tip[0]} ${tip[1]} ${tip[2]} и ${tip[3]}`;
+        const tip = shuffle([...this.god].map((x) => kids.indexOf(x) + 1));
+        this.tip = `${tip[0]}, ${tip[1]}, ${tip[2]} и ${tip[3]}`;
+        console.log(this.god);
     }
 
     @Mutation mutateOutro() {
         this.outro = true;
     }
-    @Mutation mutateMainSolved(){
+
+    @Mutation mutateMainSolved() {
         this.mainSolved = true;
     }
 }

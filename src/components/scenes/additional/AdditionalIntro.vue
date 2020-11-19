@@ -2,8 +2,8 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
 
-export default class Intro extends DefaultScene {
-  public nameScene = "Intro";
+export default class AdditionalIntro extends DefaultScene {
+  public nameScene = "AdditionalIntro";
   picName = "galaxy_02";
   public descriptionScene =
       ' Джокс обрадовано протянул вам шкатулку и семь статуэток. Вы осмотрели статуэтки...\n' +
@@ -17,11 +17,10 @@ export default class Intro extends DefaultScene {
   private agreementOptions = [
       new DefaultOptionTransition(
           'Далее...',
-          'LegendIntro',
+          'LegendFirst',
 
       ),
   ];
-  // noinspection JSUnusedGlobalSymbols
 
   options = [
     new DefaultOption(
@@ -33,11 +32,11 @@ export default class Intro extends DefaultScene {
     ),
     new DefaultOptionTransition(
         'Отойдите и не мешайте, я попробую открыть шкатулку',
-        '',
+        'AdditionalSolveInit',
     ),
       new DefaultOptionTransition(
         'Нет, я, пожалуй, не буду рисковать...',
-        'success',
+        'Success',
       ),
   ];
 }

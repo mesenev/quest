@@ -1,11 +1,14 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
-import { DefaultOptionTransition } from "@/store/DefaultOption";
-
+import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
+import { getModule } from "vuex-module-decorators";
+import GameStore from "@/store/GameStore";
+import SceneStore from "@/store/SceneStore";
 
 
 export default class SolveInit extends DefaultScene {
   public nameScene = "SolveInit";
+  picName = 'tomb_03';
   public descriptionScene =
       " Вы проследовали за Джоксом к пирамиде." +
       " Вход в единственную доступную комнату был накрыт специальным защитным полем.\n" +
@@ -24,38 +27,45 @@ export default class SolveInit extends DefaultScene {
       " На вратах в пирамиду вы заметили выемку, точно подходящую для этих ключей, точнее, одного из них.\n" +
       " \n" +
       " Итак, каким ключом вы будете открывать гробницу?"
+
+  private checkAnswer(name: string) {
+    if (this.gameStore.god == name)
+      getModule(SceneStore).changeScene('Correct');
+    else
+      getModule(SceneStore).changeScene('Fail');
+  }
+
   options = [
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Ареса',
-        'Intro',
+        () => this.checkAnswer('арес'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Вмаза',
-        'Intro',
+        () => this.checkAnswer('вмаз'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Звера',
-        'Intro',
+        () => this.checkAnswer('звер'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Зевса',
-        'Intro',
+        () => this.checkAnswer('зевс'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Земы',
-        'Intro',
+        () => this.checkAnswer('зема'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Марса',
-        'Intro',
+        () => this.checkAnswer('марс'),
     ),
-    new DefaultOptionTransition(
+    new DefaultOption(
         'Взять ключ Мерса',
-        'Intro',
+        () => this.checkAnswer('мерс'),
     ),
   ];
 }
 
 </script>
 
-</script>
