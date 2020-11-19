@@ -2,7 +2,7 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
 
-export default class ChitchatIntro extends DefaultScene {
+export default class LegendIntro extends DefaultScene {
   public nameScene = "LegendIntro";
   public descriptionScene = " Доктор археологии Индий Джокс взял пачку листов и начал читать:\n" +
       " \n" +

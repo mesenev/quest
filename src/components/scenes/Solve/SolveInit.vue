@@ -2,6 +2,8 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
 
+
+
 export default class SolveInit extends DefaultScene {
   public nameScene = "SolveInit";
   public descriptionScene =
@@ -24,8 +26,32 @@ export default class SolveInit extends DefaultScene {
       " Итак, каким ключом вы будете открывать гробницу?"
   options = [
     new DefaultOptionTransition(
-        'И что - неужели у вас нет совершенно ничего, что могло бы помочь? И никаких идей?',
-        'Intro'
+        'Взять ключ Ареса',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Вмаза',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Звера',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Зевса',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Земы',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Марса',
+        'Intro',
+    ),
+    new DefaultOptionTransition(
+        'Взять ключ Мерса',
+        'Intro',
     ),
   ];
 }

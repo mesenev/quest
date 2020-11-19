@@ -38,8 +38,7 @@ export default class ChitchatIntro extends DefaultScene {
         () => {
           this.gameStore.setFlagTo('diary', true)
         },
-        () => {
-        },
+        null,
         () => {
           return !this.gameStore.diary;
         }
@@ -51,8 +50,7 @@ export default class ChitchatIntro extends DefaultScene {
                 () => {
           this.gameStore.setFlagTo('mummy', true)
         },
-        () => {
-        },
+        null,
         () => {
           return !this.gameStore.mummy;
         }
@@ -63,8 +61,7 @@ export default class ChitchatIntro extends DefaultScene {
                 () => {
           this.gameStore.setFlagTo('book', true)
         },
-        () => {
-        },
+        null,
         () => {
           return !this.gameStore.book;
         }
@@ -76,8 +73,7 @@ export default class ChitchatIntro extends DefaultScene {
                 () => {
           this.gameStore.setFlagTo('puzzle', true)
         },
-        () => {
-        },
+        null,
         () => {
           return !this.gameStore.puzzle;
         }
@@ -89,8 +85,7 @@ export default class ChitchatIntro extends DefaultScene {
                 () => {
           this.gameStore.setFlagTo('graal', true)
         },
-        () => {
-        },
+        null,
         () => {
           return !this.gameStore.graal;
         }
