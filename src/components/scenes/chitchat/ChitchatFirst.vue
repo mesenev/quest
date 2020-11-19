@@ -29,36 +29,72 @@ export default class ChitchatIntro extends DefaultScene {
     new DefaultOptionTransition(
         'Вы прекрасный собеседник и замечательный специалист по древностям,' +
         ' но у нас есть дело - расскажите легенду о братьях',
-        'LegendIntro'
+        'LegendIntro',
     ),
     new DefaultOptionTransition(
         'Я с удовольствием почитал бы дневник в переводе от профессора Зидоча.' +
         ' Его эксцентрично-литературные переводы меня восхищают',
         'ChitchatDiary',
+        () => {
+          this.gameStore.setFlagTo('diary', true)
+        },
+        () => {
+        },
+        () => {
+          return !this.gameStore.diary;
+        }
     ),
     new DefaultOptionTransition(
         'Рука мумии? Думаю, что буду просто счастлив увидеть такую редкость' +
         ' - если вас не затруднит, доктор',
         'ChitchatMummy',
-
+                () => {
+          this.gameStore.setFlagTo('mummy', true)
+        },
+        () => {
+        },
+        () => {
+          return !this.gameStore.mummy;
+        }
     ),
     new DefaultOptionTransition(
         'А что это у вас лежит? Не "Малая ли Энциклопедия Богов" самого Склерозуса?',
         'ChitchatBook',
+                () => {
+          this.gameStore.setFlagTo('book', true)
+        },
+        () => {
+        },
+        () => {
+          return !this.gameStore.book;
+        }
     ),
     new DefaultOptionTransition(
         'Я просто обожаю всяческие загадки.' +
         ' Думаю, ваша не так хороша, как вы считаете. Может, загадаете ее мне?',
-        'ChitchatPuzzle'
+        'ChitchatPuzzle',
+                () => {
+          this.gameStore.setFlagTo('puzzle', true)
+        },
+        () => {
+        },
+        () => {
+          return !this.gameStore.puzzle;
+        }
     ),
     new DefaultOptionTransition(
         'Кстати, доктор Джокс, может, расскажите,' +
         ' что вы искали на планете Граал - я много слышал о вашей экспедиции...',
-        'ChitchatGraal'
+        'ChitchatGraal',
+                () => {
+          this.gameStore.setFlagTo('graal', true)
+        },
+        () => {
+        },
+        () => {
+          return !this.gameStore.graal;
+        }
     ),
   ];
-
-
-}
 }
 </script>

@@ -11,7 +11,8 @@
 <script lang="ts">
 import { getModule } from 'vuex-module-decorators';
 import { Options, Vue } from 'vue-class-component';
-import Store from '@/store/GameStore';
+import GameStore from '@/store/GameStore';
+import SceneStore from '@/store/SceneStore';
 import SceneOption from "@/components/common/SceneOption.vue";
 import { DefaultOption } from "@/store/DefaultOption";
 
@@ -24,7 +25,8 @@ export interface Scene {
 export default class DefaultScene extends Vue implements Scene {
   public descriptionScene!: string;
   public nameScene!: string;
-  protected store = getModule(Store);
+  protected gameStore = getModule(GameStore);
+  protected sceneStore = getModule(SceneStore);
   protected options: DefaultOption[] = [];
 
   public get optionsGetter(): DefaultOption[] {

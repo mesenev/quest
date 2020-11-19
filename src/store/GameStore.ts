@@ -4,28 +4,31 @@ import Store from '@/store/index';
 @Module({ dynamic: true, store: Store, name: 'gameStore', namespaced: true })
 export default class GameStore extends VuexModule {
 
-    health = 999;
-    current = 'Initial';
+    credits = 2000;
+    graal = false;
+    diary = false;
+    mummy = false;
+    puzzle = false;
+    book = false;
 
-    @Mutation
-    decreaseHealth() {
-        this.health -= 1;
+    @Mutation setFlagTo(flagName: string, value: boolean) {
+        if ('graal' == flagName)
+            this.graal = value;
+        if ('diary' == flagName)
+            this.diary = value;
+        if ('mummy' == flagName)
+            this.mummy = value;
+        if ('puzzle' == flagName)
+            this.puzzle = value;
+        if ('book' == flagName)
+            this.book = value;
     }
 
     @Mutation
-    changeScene(newScene: string) {
-        this.current = newScene;
+    changeCredits(diff: number) {
+        this.credits = this.credits + diff;
     }
 
-    @Action
-    decreaseHealthAction(n: number) {
-        for (let i = 0; i < n; i++)
-            this.decreaseHealth();
-    }
 
-    @Action
-    changeSceneAction(scene: string) {
-        this.changeScene(scene);
-    }
 }
 

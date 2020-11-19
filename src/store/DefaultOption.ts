@@ -1,4 +1,5 @@
-import Store from '@/store/GameStore';
+import GameStore from '@/store/GameStore';
+import SceneStore from '@/store/SceneStore';
 import { getModule } from "vuex-module-decorators";
 
 export class DefaultOption {
@@ -6,11 +7,10 @@ export class DefaultOption {
     public handler: Function;
     protected isActiveCheck: Function | null = null;
     protected isShowChecker: Function | null = null;
-    protected store = getModule(Store);
+    protected sceneStore = getModule(SceneStore);
 
     constructor(
-        text: string,
-        handler: Function,
+        text: string, handler: Function,
         active: Function | null = null,
         show: Function | null = null,
     ) {
@@ -38,9 +38,18 @@ export class DefaultOption {
 export class DefaultOptionTransition extends DefaultOption {
     constructor(
         text: string, target: string,
+        additional: Function = () => {
+        },
         active: Function | null = null,
         show: Function | null = null,
     ) {
-        super(text, () => this.store.changeScene(target), active, show);
+        super(
+            text,
+            () => {
+                this.sceneStore.changeScene(target);
+                additional();
+            },
+            active, show
+        );
     }
 }
