@@ -34,15 +34,21 @@ export default class LegendSecond extends DefaultScene {
   options = [
     new DefaultOptionTransition(
         'Э нет, ищите другого дурака. Я убираюсь с этой планеты...',
-        'Fail2',
+        'FailReject',
     ),
     new DefaultOptionTransition(
         'А можно еще раз послушать?',
         'LegendIntro',
+        undefined,
+        null,
+        () => this.gameStore.mainSolved,
     ),
     new DefaultOptionTransition(
         'Думаю, что уже достаточно услышал. Пора приступать...',
-        'SolveInit'
+        'SolveInit',
+        undefined,
+        null,
+        () => !this.gameStore.mainSolved,
     ),
   ];
 }

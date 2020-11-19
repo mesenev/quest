@@ -3,6 +3,7 @@ import DefaultScene from "@/components/common/DefaultScene.vue";
 
 export default class Fail extends DefaultScene {
   public nameScene = "Fail";
+  picName = "pharaoh_02";
   public descriptionScene =
       " Вы взяли ромбический ключ из рук статуэтки и вставили его в паз на вратах." +
       " Что-то негромко щелкнуло. Пирамида мелко затряслась, и на вас посыпался песок с потолка.\n" +
@@ -19,8 +20,7 @@ export default class Fail extends DefaultScene {
       " \n" +
       " <span>Ваша миссия провалена!</span>";
 
-    options = [
-    ];
+  options = [];
 }
 
 </script>

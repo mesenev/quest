@@ -4,7 +4,7 @@ import Store from '@/store/index';
 const godsAndSons = ['арес', 'вмаз', 'звер', 'зевс', 'зема', 'марс', 'мерс'];
 const kids = ['з', 'е', 'а', 'в', 'р', 'с', 'м'];
 
-function shuffle(a: Array<any>) {
+export function shuffle(a: Array<any>) {
     let j, x, i;
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -26,6 +26,8 @@ export default class GameStore extends VuexModule {
     book = false;
     god: string = '';
     tip: string = '';
+    outro = false;
+    mainSolved = false;
 
     get godDescription(): string {
         if (this.god)
@@ -58,6 +60,13 @@ export default class GameStore extends VuexModule {
         this.god = godsAndSons[Math.floor(Math.random() * godsAndSons.length)];
         let tip = shuffle([...this.god].map((x) => kids.indexOf(x) + 1));
         this.tip = `${tip[0]} ${tip[1]} ${tip[2]} и ${tip[3]}`;
+    }
+
+    @Mutation mutateOutro() {
+        this.outro = true;
+    }
+    @Mutation mutateMainSolved(){
+        this.mainSolved = true;
     }
 }
 

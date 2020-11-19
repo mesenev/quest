@@ -1,7 +1,7 @@
 <template>
   <div class="DefaultScene">
-    <h1>{{ nameScene }}</h1>
-    <h2>{{ descriptionScene }}</h2>
+    <div v-html="descriptionScene"/>
+    <img :src="picture" alt="ololo epta"/>
     <div class="actions">
       <SceneOption v-for="item in optionsGetter" v-bind:key="item" :dataCreate="item"/>
     </div>
@@ -25,12 +25,16 @@ export interface Scene {
 export default class DefaultScene extends Vue implements Scene {
   public descriptionScene!: string;
   public nameScene!: string;
+  protected picName!: string;
   protected gameStore = getModule(GameStore);
   protected sceneStore = getModule(SceneStore);
   protected options: DefaultOption[] = [];
 
   public get optionsGetter(): DefaultOption[] {
     return this.options;
+  }
+  public get picture(){
+    return `@/assets/${this.picName}.jpg`;
   }
 }
 </script>

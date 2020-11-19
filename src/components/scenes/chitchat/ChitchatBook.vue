@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatBook extends DefaultScene {
   public nameScene = "ChitchatBook";
+  picName = "tomb_03";
   public descriptionScene = ' - А вы и впрямь неплохо разбираетесь в древней литературе!' +
       ' Это действительно "Большой справочник Младших Богов", а еще у нас есть "Малый справочник Старших Богов",' +
       ' найденные во время раскопок гробницы фараона Серемхотета. И именно издание Верховного жреца Склерозуса,' +

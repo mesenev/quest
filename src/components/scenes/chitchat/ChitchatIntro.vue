@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatIntro extends DefaultScene {
   public nameScene = "ChitchatIntro";
+  picName = "galaxy_02";
   public descriptionScene = " - Разумеется, она никуда от нас не денется, да и время поболтать у нас есть." +
       " Но боюсь, что <span>мои познания не помогут</span> вам разгадать секрет гробницы." +
       " Так что, может, не будем отвлекаться на бесполезную, хотя, несомненно," +

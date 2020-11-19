@@ -2,8 +2,9 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
 
-export default class LegendIntro extends DefaultScene {
-  public nameScene = "LegendIntro";
+export default class LegendFirst extends DefaultScene {
+  public nameScene = "LegendFirst";
+  picName = "tomb_03";
   public descriptionScene = " Доктор археологии Индий Джокс взял пачку листов и начал читать:\n" +
       " \n" +
       " \"В давние времена был правителем земель угупетских ужасный снаружи и добрый внутри фараон" +
@@ -36,12 +37,23 @@ export default class LegendIntro extends DefaultScene {
   options = [
     new DefaultOptionTransition(
         'Слушать дальше',
-        'Legend2'
+        'LegendSecond'
     ),
     new DefaultOptionTransition(
         'Думаю, что уже достаточно услышал. Пора приступать...',
-        'SolveInit'
+        'SolveInit',
+        undefined,
+        null,
+        () => this.gameStore.mainSolved,
     ),
+    new DefaultOptionTransition(
+        'Взяться за открывание шкатулки',
+        'SolveInit',
+        undefined,
+        null,
+        () => !this.gameStore.mainSolved,
+    ),
+
   ];
 
 

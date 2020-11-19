@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatIntro extends DefaultScene {
   public nameScene = "ChitchatFirst";
+  picName = "galaxy_02";
   public descriptionScene =
       " - Хорошо, - доктор Джокс откинулся в кресле и жестом предложил вам угощаться из мини-бара." +
       " - Признаться, давненько мне не приходилось общаться с разбирающимся в предметах старины рейнджером." +

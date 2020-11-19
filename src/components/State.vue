@@ -17,7 +17,6 @@ export default class State extends Vue {
   private store = getModule(GameStore);
 
   get health(){
-    return this.store.health;
   }
 }
 </script>

@@ -1,9 +1,10 @@
- <script>
+ <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatMummy extends DefaultScene {
   public nameScene = "ChitchatMummy";
+  picName = "galaxy_02";
   public descriptionScene ='- Ну разумеется, мне это не трудно!\n' +
       ' \n' +
       ' С этими словами археолог закатал рукав своей рубахи примерно по локоть и вытянул руку в вашу сторону.\n' +

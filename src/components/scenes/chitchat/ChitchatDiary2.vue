@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatDiary2 extends DefaultScene {
   public nameScene = "ChitchatDiary2";
+  public picName = "tomb_03";
   public descriptionScene =  '"Пригласили рымского гладиатора Минимуса. ' +
       'Приволок целый щит дурман-травы, купленной у Хачика Абрамяна. ' +
       'Щит большой, влазит много. Пили, курили дурман-траву, заигрывали с рабынями.' +

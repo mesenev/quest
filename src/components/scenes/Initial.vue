@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class Initial extends DefaultScene {
   public nameScene = "Initial";
+  picName = "pharaoh_00";
   public descriptionScene = "По наводящему сигналу вы опустились в центре выжженной пустыни." +
       " Неподалеку находился палаточный лагерь археологов, накрытый куполом светоотражающего поля." +
       " Прямо за ним возвышалась громадная пирамида, сложенная из каменных блоков." +

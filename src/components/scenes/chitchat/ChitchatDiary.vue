@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatDiary extends DefaultScene {
   public nameScene = "ChitchatDiary";
+  public picName = "tomb_03";
   public descriptionScene = " Вы взяли первую страницу и принялись читать:\n" +
       " \"...завершена. Отправили рабов за вином к Похметепу. Рабы вернулись быстро, но вина принесли мало." +
       " Надавали рабам по шее и опять отправили к Похметепу.\n" +

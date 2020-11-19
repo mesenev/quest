@@ -4,6 +4,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 
 export default class ChitchatGraal extends DefaultScene {
   public nameScene = "ChitchatGraal";
+  picName = 'galaxy_02';
   public descriptionScene = ' - Да, собственно говоря, это даже не экспедиция была, ' +
       'а погоня за мечтой. Так сказать, в поисках легенды - секрета вечной жизни.\n' +
       ' По выражению лица Индия Джокса вы поняли, что он просто насмехается над вами.' +
