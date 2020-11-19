@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Vue } from 'vue-class-component';
 import { Prop } from 'vue-property-decorator';
-import DefaultOption from "@/store/DefaultOption";
+import { DefaultOption } from "@/store/DefaultOption";
 
 export default class SceneOption extends Vue {
   private _description!: string;

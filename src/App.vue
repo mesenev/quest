@@ -1,26 +1,22 @@
 <template>
-  <Garden v-if="`garden` === currentScene"/>
-  <Castle v-if="`castle` === currentScene"/>
+  <component v-bind:is="currentScene"></component>
   <State/>
-  <OptionsList/>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import { getModule } from 'vuex-module-decorators';
-import Garden from '@/components/scenes/Garden.vue';
-import Castle from '@/components/scenes/Castle.vue';
 import State from '@/components/State.vue';
 import GameStore from '@/store/GameStore';
+import SceneStore from "@/store/SceneStore";
 
-@Options({
-  components: { Garden, Castle, State, },
-})
+@Options({ components: { State } })
 export default class App extends Vue {
-  private store = getModule(GameStore);
+  private gameStore = getModule(GameStore);
+  private sceneStore = getModule(SceneStore);
 
   get currentScene() {
-    return this.store.currentScene;
+    return this.sceneStore.currentScene;
   }
 }
 </script>

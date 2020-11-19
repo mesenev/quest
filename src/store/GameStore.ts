@@ -1,11 +1,11 @@
 import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators';
 import Store from '@/store/index';
 
-@Module({ dynamic: true, store: Store, name: 'user', namespaced: true })
+@Module({ dynamic: true, store: Store, name: 'gameStore', namespaced: true })
 export default class GameStore extends VuexModule {
 
     health = 999;
-    currentScene = 'garden';
+    current = 'Initial';
 
     @Mutation
     decreaseHealth() {
@@ -14,7 +14,7 @@ export default class GameStore extends VuexModule {
 
     @Mutation
     changeScene(newScene: string) {
-        this.currentScene = newScene;
+        this.current = newScene;
     }
 
     @Action
