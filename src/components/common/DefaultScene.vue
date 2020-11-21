@@ -25,14 +25,9 @@ import { DefaultOption } from "@/store/DefaultOption";
 import State from "@/components/State.vue";
 import { Prop } from "vue-property-decorator";
 
-export interface Scene {
-  nameScene: string;
-  descriptionScene: string;
-}
 
 @Options({ components: { SceneOption, State } })
-export default class DefaultScene extends Vue implements Scene {
-  public descriptionScene!: string;
+export default class DefaultScene extends Vue {
   public nameScene!: string;
   @Prop() protected picName = '';
   protected gameStore = getModule(GameStore);

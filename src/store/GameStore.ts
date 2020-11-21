@@ -59,7 +59,6 @@ export default class GameStore extends VuexModule {
     }
 
     @Mutation selectGod() {
-        debugger;
         this.god = godsAndSons[Math.floor(Math.random() * godsAndSons.length)];
         const tip = shuffle([...this.god].map((x) => kids.indexOf(x) + 1));
         this.tip = `${tip[0]}, ${tip[1]}, ${tip[2]} и ${tip[3]}`;

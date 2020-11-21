@@ -1,7 +1,7 @@
 <template>
-  <Begin v-if="begin" v-on:click="startAudio"/>
-  <transition v-else name="fade" mode="out-in">
-    <component v-if="!isOutro" v-on:click="startAudio" v-bind:is="currentScene"/>
+  <transition name="fade" mode="out-in">
+    <Begin v-if="begin" v-on:click="startAudio"/>
+    <component v-else-if="!isOutro" v-on:click="startAudio" v-bind:is="currentScene"/>
     <Outro v-else/>
   </transition>
   <div>
