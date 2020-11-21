@@ -1,7 +1,7 @@
 <template>
   <div class="DefaultScene">
     <div class="scene" v-html="descriptionScene"/>
-    <div class="image"><img class="" :src="picture" alt="ololo epta"/>
+    <div class="image" v-if="picName"><img class="" :src="picture" alt="ololo epta"/>
     </div>
     <div class="actions">
       <div class="actions-container">
@@ -50,9 +50,11 @@ export default class DefaultScene extends Vue implements Scene {
   flex-wrap: wrap
   align-content: space-between
 
+
 .scene
   flex 0 0 66%
   text-align left
+
 
 .image
   flex 0 0 33%

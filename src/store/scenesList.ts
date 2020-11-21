@@ -1,6 +1,5 @@
 import Intro from "@/components/scenes/Intro.vue";
 import Initial from "@/components/scenes/Initial.vue";
-import Vue from 'vue';
 import ChitchatBook from "@/components/scenes/chitchat/ChitchatBook.vue";
 import ChitchatDiary from "@/components/scenes/chitchat/ChitchatDiary.vue";
 import ChitchatDiary2 from "@/components/scenes/chitchat/ChitchatDiary2.vue";

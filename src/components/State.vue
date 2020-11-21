@@ -1,7 +1,7 @@
 <template>
   <div class="state">
-      <span>{{ money }}</span>
-      <span>{{ tip }}</span>
+    <span><div v-html="money"></div></span>
+    <span><div v-html="tip"></div></span>
   </div>
 </template>
 

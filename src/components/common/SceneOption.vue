@@ -1,5 +1,7 @@
 <template>
-  <div v-on:click="Handler">{{ Description }}</div>
+  <div class="wrapper">
+    <div class="option" v-on:click="Handler">{{ Description }}</div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -21,6 +23,15 @@ export default class SceneOption extends Vue {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+.wrapper
+  margin-bottom 20px
+.option
+  color: #6464ee
+  font-weight 700
+  cursor pointer
+  text-align left
+.option:hover
+  color: blue
+  text-decoration underline
 </style>

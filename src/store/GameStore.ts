@@ -29,12 +29,12 @@ export default class GameStore extends VuexModule {
     outro = false;
     mainSolved = false;
     chatInit = false;
+    begin = true;
 
     get godDescription(): string {
         if (this.god)
-            return `Имя бога, открывающего врата,\n
-            состоит из первых букв имен
-            \n${this.tip} сыновей фараона`;
+            return `Имя бога, открывающего врата,<br>состоит из первых букв имен
+            <br>${this.tip} сыновей фараона`;
         else
             return '';
     }
@@ -59,10 +59,11 @@ export default class GameStore extends VuexModule {
     }
 
     @Mutation selectGod() {
+        debugger;
         this.god = godsAndSons[Math.floor(Math.random() * godsAndSons.length)];
         const tip = shuffle([...this.god].map((x) => kids.indexOf(x) + 1));
         this.tip = `${tip[0]}, ${tip[1]}, ${tip[2]} и ${tip[3]}`;
-        console.log(this.god);
+        // console.log(this.god);
     }
 
     @Mutation mutateOutro() {
@@ -71,6 +72,10 @@ export default class GameStore extends VuexModule {
 
     @Mutation mutateMainSolved() {
         this.mainSolved = true;
+    }
+
+    @Mutation changeBegin() {
+        this.begin = false;
     }
 }
 
