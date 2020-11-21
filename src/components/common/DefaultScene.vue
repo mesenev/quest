@@ -1,6 +1,10 @@
 <template>
   <div class="DefaultScene">
-    <div class="scene" v-html="descriptionScene"/>
+    <div class="scene">
+      <slot>
+
+      </slot>
+    </div>
     <div class="image" v-if="picName"><img class="" :src="picture" alt="ololo epta"/>
     </div>
     <div class="actions">
@@ -19,6 +23,7 @@ import GameStore from '@/store/GameStore';
 import SceneOption from "@/components/common/SceneOption.vue";
 import { DefaultOption } from "@/store/DefaultOption";
 import State from "@/components/State.vue";
+import { Prop } from "vue-property-decorator";
 
 export interface Scene {
   nameScene: string;
@@ -29,9 +34,9 @@ export interface Scene {
 export default class DefaultScene extends Vue implements Scene {
   public descriptionScene!: string;
   public nameScene!: string;
-  protected picName!: string;
+  @Prop() protected picName = '';
   protected gameStore = getModule(GameStore);
-  protected options: DefaultOption[] = [];
+  @Prop() options: DefaultOption[] = [];
 
   public get optionsGetter(): DefaultOption[] {
     return this.options.filter(x => x.isShow);
@@ -76,6 +81,7 @@ export default class DefaultScene extends Vue implements Scene {
   padding 20px
   align-content: space-between
   flex-direction row
+
 .actions-container
   flex: 0 0 66%
 </style>
