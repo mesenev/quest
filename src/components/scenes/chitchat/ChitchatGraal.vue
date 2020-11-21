@@ -1,8 +1,9 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
-
-export default class ChitchatGraal extends DefaultScene {
+import { Options, Vue } from "vue-class-component";
+@Options({ components: { DefaultScene } })
+export default class ChitchatGraal extends Vue {
   public nameScene = "ChitchatGraal";
   picName = 'galaxy_02';
   public descriptionScene = ' - Да, собственно говоря, это даже не экспедиция была, ' +

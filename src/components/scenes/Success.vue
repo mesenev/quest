@@ -1,10 +1,15 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption } from "@/store/DefaultOption";
+import { Options, Vue } from "vue-class-component";
+import { getModule } from "vuex-module-decorators";
+import GameStore from "@/store/GameStore";
 
-export default class Success extends DefaultScene {
+@Options({ components: { DefaultScene } })
+export default class Success extends Vue {
   public nameScene = "Success";
   picName = "pharaoh_00";
+  private gameStore = getModule(GameStore);
   public descriptionScene =
       ' В любом случае, ваша миссия выполнена, так что можно возвращаться на планету Земля за своим гонораром.' +
       ' Вы пожелали удачи археологу, и вернулись на свой корабль,' +
@@ -23,5 +28,4 @@ export default class Success extends DefaultScene {
     ),
   ];
 }
-
 </script>

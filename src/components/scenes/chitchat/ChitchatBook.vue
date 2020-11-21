@@ -1,8 +1,10 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
+import { Options, Vue } from "vue-class-component";
 
-export default class ChitchatBook extends DefaultScene {
+@Options({ components: { DefaultScene } })
+export default class ChitchatBook extends Vue {
   public nameScene = "ChitchatBook";
   picName = "tomb_03";
   public descriptionScene = ' - А вы и впрямь неплохо разбираетесь в древней литературе!' +

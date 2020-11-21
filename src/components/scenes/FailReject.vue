@@ -1,7 +1,8 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
-
-export default class FailReject extends DefaultScene {
+import { Options, Vue } from "vue-class-component";
+@Options({ components: { DefaultScene } })
+export default class FailReject extends Vue {
   public nameScene = "FailReject";
   picName = 'pharaoh_00';
   public descriptionScene =

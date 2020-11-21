@@ -1,8 +1,9 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
-
-export default class LegendFirst extends DefaultScene {
+import { Options, Vue } from "vue-class-component";
+@Options({ components: { DefaultScene } })
+export default class LegendFirst extends Vue {
   public nameScene = "LegendFirst";
   picName = "tomb_03";
   public descriptionScene = " Доктор археологии Индий Джокс взял пачку листов и начал читать:<br>" +

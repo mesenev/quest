@@ -1,8 +1,10 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
+import { Options, Vue } from "vue-class-component";
 
-export default class ChitchatPuzzle extends DefaultScene {
+@Options({ components: { DefaultScene } })
+export default class ChitchatPuzzle extends Vue {
   public nameScene = "ChitchatPuzzle";
   picName = "tomb_03";
   bet = -1;

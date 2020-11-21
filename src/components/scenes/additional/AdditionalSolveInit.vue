@@ -2,9 +2,10 @@
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
 import { shuffle } from "@/store/GameStore";
+import { Options, Vue } from "vue-class-component";
 
-
-export default class AdditionalSolveInit extends DefaultScene {
+@Options({ components: { DefaultScene } })
+export default class AdditionalSolveInit extends Vue {
   public nameScene = "AdditionalSolveInit";
   picName = 'pharaoh_01';
   public descriptionScene =

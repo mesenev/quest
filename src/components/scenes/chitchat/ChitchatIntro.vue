@@ -1,14 +1,23 @@
+<template>
+  <DefaultScene :options="options" :picName="picName">
+<span>
+  - Разумеется, она никуда от нас не денется, да и время поболтать у нас есть.
+  Но боюсь, что <span class="text-success">мои познания не помогут вам</span>
+  разгадать секрет гробницы. Так что, может, не будем отвлекаться на бесполезную,
+  хотя, несомненно, увлекательную беседу, и займемся делом?
+</span>
+  </DefaultScene>
+</template>
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOptionTransition } from "@/store/DefaultOption";
+import { Options, Vue } from "vue-class-component";
 
-export default class ChitchatIntro extends DefaultScene {
+@Options({ components: { DefaultScene } })
+export default class ChitchatIntro extends Vue {
   public nameScene = "ChitchatIntro";
-  picName = "galaxy_02";
-  public descriptionScene = " - Разумеется, она никуда от нас не денется, да и время поболтать у нас есть." +
-      " Но боюсь, что <span>мои познания не помогут</span> вам разгадать секрет гробницы." +
-      " Так что, может, не будем отвлекаться на бесполезную, хотя, несомненно," +
-      " увлекательную беседу, и займемся делом?";
+  public picName = "galaxy_02";
+
 
   options = [
     new DefaultOptionTransition(

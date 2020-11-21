@@ -1,8 +1,9 @@
 <script lang="ts">
 import DefaultScene from "@/components/common/DefaultScene.vue";
 import { DefaultOption, DefaultOptionTransition } from "@/store/DefaultOption";
-
-export default class AdditionalIntro extends DefaultScene {
+import { Options, Vue } from "vue-class-component";
+@Options({ components: { DefaultScene } })
+export default class AdditionalIntro extends Vue {
   public nameScene = "AdditionalIntro";
   picName = "galaxy_02";
   public descriptionScene =
