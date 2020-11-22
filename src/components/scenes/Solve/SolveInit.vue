@@ -29,7 +29,7 @@ import GameStore from "@/store/GameStore";
 
 @Options({ components: { DefaultScene } })
 export default class SolveInit extends Vue {
-  public nameScene = "SolveInit";
+  public static nameScene = "SolveInit";
   picName = 'tomb_03';
   private gameStore = getModule(GameStore);
 

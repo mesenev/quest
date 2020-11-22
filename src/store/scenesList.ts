@@ -33,7 +33,7 @@ const scenesList = [
 ];
 export const scenesDict: Record<string, any> = scenesList.reduce(
     function (obj: Record<string, any>, x: any) {
-        obj[x.name.toString()] = x;
+        obj[x.nameScene] = x;
         return obj;
     }, {}
 );

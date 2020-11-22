@@ -21,7 +21,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({ components: { DefaultScene } })
 export default class AdditionalIntro extends Vue {
-  public nameScene = "AdditionalIntro";
+  public static nameScene = "AdditionalIntro";
   picName = "galaxy_02";
   public agreement = false;
 

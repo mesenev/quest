@@ -15,7 +15,7 @@ import { getModule } from "vuex-module-decorators";
 import GameStore from "@/store/GameStore";
 @Options({ components: { DefaultScene } })
 export default class LegendSecond extends Vue {
-  public nameScene = "LegendSecond";
+  public static nameScene = "LegendSecond";
   picName = 'tomb_03';
   private gameStore = getModule(GameStore);
   options = [

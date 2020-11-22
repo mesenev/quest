@@ -6,6 +6,8 @@
   </transition>
   <div>
     <audio autoplay id="audio" preload="auto" :src="audioFile" type="audio/mpeg"></audio>
+
+    <img hidden v-for="pic in picsList"  v-bind:key="pic" :src="require(`@/assets/${pic}`)"/>
   </div>
 </template>
 
@@ -43,6 +45,16 @@ export default class App extends Vue {
     'Theo-Inside', 'trash', 'fly3', 'HyperDream2', 'LONGWAY', 'Beyond_reach',
     'starflight', 'fly12', 'Surf', 'gladiator', 'Awakening',
   ];
+
+
+  public picsList = [
+    'pharaoh_01.jpg',
+    'tomb_03.jpg',
+    'pharaoh_02.jpg',
+    'galaxy_02.jpg',
+    'pharaoh_00.jpg',
+  ];
+
   private audio_: string = this.tracks_.filter(x => x != this.audio_)[
       Math.floor(Math.random() * (this.tracks_.length - 1))
       ];
@@ -70,16 +82,17 @@ export default class App extends Vue {
 
 <style lang="stylus">
 @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-
+html
+  background-color rgb(28, 32, 43)
+  color #a5b2c0
 #app
   font-family Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   font-weight 400
   text-align center
-  color #2c3e50
   margin-top 60px
-  font-size: 1.3em
+  font-size: 1.27em
 
 .fade-enter-active
 .fade-leave-active

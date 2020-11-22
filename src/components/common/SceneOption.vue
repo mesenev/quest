@@ -27,11 +27,10 @@ export default class SceneOption extends Vue {
 .wrapper
   margin-bottom 20px
 .option
-  color: #6464ee
-  font-weight 700
+  color: #8da18c
+  font-weight 400
   cursor pointer
   text-align left
 .option:hover
-  color: blue
-  text-decoration underline
+  color #cde8cc
 </style>

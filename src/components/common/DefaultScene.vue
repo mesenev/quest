@@ -37,12 +37,13 @@ export default class DefaultScene extends Vue {
     return this.options.filter(x => x.isShow);
   }
 
+
   public get picture() {
     return require(`@/assets/${this.picName}.jpg`);
   }
 }
 </script>
-<style lang="stylus" scoped>
+<style lang="stylus">
 .DefaultScene
   display: flex
   margin 0 50px
@@ -51,9 +52,11 @@ export default class DefaultScene extends Vue {
   align-content: space-between
 
 
+
 .scene
-  flex 0 0 66%
+  flex 0 0 60%
   text-align left
+  padding 30px
 
 
 .image

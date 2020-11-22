@@ -21,7 +21,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({ components: { DefaultScene } })
 export default class Fail extends Vue {
-  public nameScene = "Fail";
+  public static nameScene = "Fail";
   picName = "pharaoh_02";
   options = [];
 }

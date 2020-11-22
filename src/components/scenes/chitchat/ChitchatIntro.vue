@@ -15,7 +15,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({ components: { DefaultScene } })
 export default class ChitchatIntro extends Vue {
-  public nameScene = "ChitchatIntro";
+  public static nameScene = "ChitchatIntro";
   public picName = "galaxy_02";
 
 

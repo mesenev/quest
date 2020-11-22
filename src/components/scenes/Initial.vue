@@ -43,7 +43,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({ components: { DefaultScene } })
 export default class Initial extends Vue {
-  public nameScene = "Initial";
+  public static nameScene = "Initial";
   public picName = "pharaoh_00";
 
   options = [

@@ -63,7 +63,7 @@ import GameStore from "@/store/GameStore";
 
 @Options({ components: { DefaultScene } })
 export default class ChitchatPuzzle extends Vue {
-  public nameScene = "ChitchatPuzzle";
+  public static nameScene = "ChitchatPuzzle";
   picName = "tomb_03";
   private gameStore = getModule(GameStore);
   public bet = -1;

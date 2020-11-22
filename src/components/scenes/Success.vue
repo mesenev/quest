@@ -24,7 +24,7 @@ import GameStore from "@/store/GameStore";
 
 @Options({ components: { DefaultScene } })
 export default class Success extends Vue {
-  public nameScene = "Success";
+  public static nameScene = "Success";
   picName = "pharaoh_00";
   private gameStore = getModule(GameStore);
   options = [

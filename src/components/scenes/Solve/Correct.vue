@@ -33,7 +33,7 @@ import GameStore from "@/store/GameStore";
 
 @Options({ components: { DefaultScene } })
 export default class Correct extends Vue {
-  public nameScene = "Correct";
+  public static nameScene = "Correct";
   picName = "pharaoh_00";
   private gameStore = getModule(GameStore);
 

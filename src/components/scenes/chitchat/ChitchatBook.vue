@@ -19,7 +19,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({ components: { DefaultScene } })
 export default class ChitchatBook extends Vue {
-  public nameScene = "ChitchatBook";
+  public static nameScene = "ChitchatBook";
   picName = "tomb_03";
 
   options = [

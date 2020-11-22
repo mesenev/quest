@@ -38,7 +38,7 @@ import GameStore from "@/store/GameStore";
 
 @Options({ components: { DefaultScene } })
 export default class Intro extends Vue {
-  public nameScene = "Intro";
+  public static nameScene = "Intro";
   public picName = "galaxy_02";
   private gameStore = getModule(GameStore);
 

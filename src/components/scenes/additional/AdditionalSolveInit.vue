@@ -57,7 +57,7 @@ import { getModule } from "vuex-module-decorators";
 
 @Options({ components: { DefaultScene } })
 export default class AdditionalSolveInit extends Vue {
-  public nameScene = "AdditionalSolveInit";
+  public static nameScene = "AdditionalSolveInit";
   picName = 'pharaoh_01';
   public result = '';
   private gameStore = getModule(GameStore);

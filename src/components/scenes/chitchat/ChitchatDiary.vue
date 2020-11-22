@@ -11,7 +11,7 @@ import { DefaultOptionTransition } from "@/store/DefaultOption";
 import { Options, Vue } from "vue-class-component";
 @Options({ components: { DefaultScene } })
 export default class ChitchatDiary extends Vue {
-  public nameScene = "ChitchatDiary";
+  public static nameScene = "ChitchatDiary";
   public picName = "tomb_03";
   options = [
     new DefaultOptionTransition(
