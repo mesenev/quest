@@ -1,6 +1,6 @@
-#where 
+# where 
 
-mesenev.ru/quest
+http://mesenev.ru/quest
 
 ## Project setup
 ```
