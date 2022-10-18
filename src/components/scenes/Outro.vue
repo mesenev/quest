@@ -24,7 +24,7 @@ import { Vue } from "vue-class-component";
 
 export default class Success extends Vue {
   get picture() {
-    return require("@/assets/wallpaper.jpg");
+    return require("@/assets/img.png");
   }
 }
 </script>
